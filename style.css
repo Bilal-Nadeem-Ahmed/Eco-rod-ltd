@@ -142,6 +142,7 @@ nav ul li a {
 .contact a {
   color: #000;
   text-decoration: none;
+  font-style: italic;
 }
 .contact a:hover {
   text-decoration: underline;
