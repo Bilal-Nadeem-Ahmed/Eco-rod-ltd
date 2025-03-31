@@ -127,6 +127,34 @@
     <p><a aria-label="Chat on WhatsApp" href="https://wa.me/+447366299741"> <img alt="Chat on WhatsApp"
           src="./images/WhatsAppButtonWhiteSmall.png" />
         <a /></p>
+    <form method="POST" id="contact-form" class="contact-form">
+      <input type="hidden" name="access_key" value="a5ce8302-0ccc-4802-9e18-6f8bce61a9d7">
+      <input type="hidden" name="subject" value="New Submission from Website">
+      <input type="checkbox" name="botcheck" id="botcheck" style="display: none;">
+
+      <div class="form-group">
+        <label for="name">Full Name</label>
+        <input type="text" name="name" id="name" required>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" required>
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Contact Number</label>
+        <input type="text" name="phone" id="phone" required pattern="^(\+44|0)7\d{9}$|^(\+44|0)\d{10}$">
+      </div>
+
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea name="message" id="message" required></textarea>
+      </div>
+
+      <button type="submit" class="cta-button">Submit</button>
+      <div id="result"></div>
+    </form>
   </section>
 
   <section id="footer">
@@ -147,6 +175,53 @@
       link.addEventListener("click", function () {
         document.querySelector(".nav-links").classList.remove("active");
       });
+    });
+    document.getElementById('contact-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const form = e.target;
+      const result = document.getElementById('result');
+
+      const botcheck = document.getElementById('botcheck');
+      if (botcheck.checked) {
+        result.className = "error";
+        result.innerHTML = "Bot detected! Submission rejected.";
+        return;
+      }
+      const formData = new FormData(form);
+
+      if (formData.get('message').length < 10) {
+        result.className = "error";
+        result.innerHTML = "Message should be at least 10 characters long!.";
+        return;
+      }
+      const json = JSON.stringify(Object.fromEntries(formData));
+      result.className = "success";
+
+      result.innerHTML = "Please wait...";
+
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: json
+      })
+        .then(async (response) => {
+          let json = await response.json();
+          result.className = "success";
+
+          result.innerHTML = response.status === 200 ? "Thank you for your enquiry. Your message has been sent!" : json.message;
+        })
+        .catch(() => {
+          result.className = "error";
+
+          result.innerHTML = "Something went wrong!";
+        })
+        .finally(() => {
+          form.reset();
+          setTimeout(() => result.style.display = "none", 5000);
+        });
     });
   </script>
 </body>
