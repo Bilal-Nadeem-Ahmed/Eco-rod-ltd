@@ -251,3 +251,34 @@ nav ul li a {
 .success {
   color: green;
 }
+.reviews {
+  padding: 2rem;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+.review-cards {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  margin-top: 1rem;
+}
+.review-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+.review-stars {
+  color: #ffc107;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+.review-text {
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+}
+.reviewer {
+  font-weight: bold;
+  color: #333;
+  font-size: 0.9rem;
+}
