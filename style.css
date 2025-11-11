@@ -141,6 +141,18 @@ nav ul div a {
   color: #ffc107;
 }
 
+::selection {
+  background: #ffc107;
+  color: black;
+  text-shadow: none;
+}
+
+::-moz-selection {
+  background: #ffc107;
+  color: #eee;
+  text-shadow: none;
+}
+
 @media (max-width: 768px) {
   .service-list li {
     font-size: 16px;
