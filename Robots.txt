@@ -13,4 +13,4 @@ Allow: /*.css$
 Allow: /images/
 Allow: /fonts/
 
-Sitemap: https://www.eco-rodltd.com/sitemap.xml
+Sitemap: https://www.eco-rodltd.com/sitemap.xml 
