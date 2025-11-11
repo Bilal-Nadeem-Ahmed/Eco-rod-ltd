@@ -1,0 +1,16 @@
+User-agent: *
+Allow: /
+
+Disallow: /cgi-bin/
+Disallow: /tmp/
+Disallow: /admin/
+Disallow: /private/
+Disallow: /test/
+Disallow: /404.html
+
+Allow: /*.js$
+Allow: /*.css$
+Allow: /images/
+Allow: /fonts/
+
+Sitemap: https://www.eco-rodltd.com/sitemap.xml

@@ -39,8 +39,35 @@ nav ul li a {
   color: #fff;
 }
 
+nav ul div a {
+  text-decoration: none;
+  color: #fff;
+}
+.nav-links {
+  margin-bottom: 0px;
+}
+.nav-links .dropdown-menu {
+  background-color: #000; /* Black background */
+  border: none; /* Remove border */
+}
+
+.nav-links .dropdown-item {
+  color: #fff; /* White text */
+}
+
+.nav-links .dropdown-item:hover,
+.nav-links .dropdown-item:focus {
+  background-color: #333; /* Dark gray hover */
+  color: #fff;
+}
+
+/* Optional: style the dropdown toggle arrow */
+.nav-links .dropdown-toggle::after {
+  color: #fff; /* White arrow */
+}
+
 .menu-toggle {
-  display: none;
+  /* display: none; */
   font-size: 24px;
   cursor: pointer;
 }
@@ -97,12 +124,21 @@ nav ul li a {
 .service-list li {
   background: #000; /* Black background */
   color: #fff; /* White text */
+
   padding: 12px;
   margin: 8px 0;
   border-radius: 5px;
   font-size: 18px;
   font-weight: 500;
   text-align: center;
+}
+
+.service-list li a {
+  color: #fff;
+  text-decoration: none;
+}
+.service-list li a:hover {
+  color: #ffc107;
 }
 
 @media (max-width: 768px) {
@@ -150,13 +186,34 @@ nav ul li a {
   text-decoration: underline;
 }
 
+.navbar-nav .dropdown-menu {
+  background-color: #000; /* Black dropdown */
+}
+
+.navbar-nav .dropdown-item {
+  color: #fff;
+}
+
+.navbar-nav .dropdown-item:hover,
+.navbar-nav .dropdown-item:focus {
+  background-color: #333;
+  color: #fff;
+}
+.navbar-nav .nav-link {
+  color: #fff; /* White text for main links */
+}
+
+.navbar-nav .nav-link:hover {
+  color: #ccc; /* Light hover */
+}
+
 /* Mobile Responsiveness */
 @media screen and (max-width: 768px) {
   .menu-toggle {
     display: block;
   }
 
-  .nav-links {
+  /* .nav-links {
     display: none;
     flex-direction: column;
     position: absolute;
@@ -169,7 +226,7 @@ nav ul li a {
 
   .nav-links.active {
     display: flex;
-  }
+  } */
 
   .service-cards {
     flex-direction: column;
