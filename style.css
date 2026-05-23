@@ -380,19 +380,6 @@ nav ul div a {
   border-radius: 5px;
   font-weight: bold;
 }
-
-.floating-call {
-  position: fixed;
-  bottom: 120px;
-  right: 24px;
-  background: #ffc107;
-  color: black;
-  font-size: 24px;
-  padding: 12px;
-  border-radius: 50%;
-  z-index: 999;
-  text-decoration: none;
-}
 .trust {
   background: #f9f9f9;
   padding: 30px 20px;
@@ -413,6 +400,12 @@ nav ul div a {
 .trust-item a {
   text-decoration: none;
   color: #000;
+}
+.trust-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
 }
 .gallery-section {
   background: #000;
