@@ -101,6 +101,8 @@ nav ul div a {
 .our-services {
   padding: 50px 20px;
   text-align: center;
+  background: #000;
+  color: #fff;
 }
 
 .service-cards {
@@ -170,8 +172,8 @@ nav ul div a {
 .card img {
   width: auto;
   height: 150px;
-  width: 250px;
-  object-fit: contain;
+  width: auto;
+  object-fit: cover;
   border-radius: 5px;
 }
 
@@ -350,4 +352,154 @@ nav ul div a {
   font-weight: bold;
   color: #333;
   font-size: 0.9rem;
+}
+.top-bar {
+  background: #ffc107;
+  color: #000;
+  text-align: center;
+  padding: 8px;
+  font-weight: 600;
+}
+.top-bar p {
+  margin: 0;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+
+.top-bar a {
+  color: #000;
+  font-weight: 800;
+  text-decoration: none;
+  margin-left: 6px;
+}
+
+.emergency-call {
+  background: #ffc107 !important;
+  color: #000 !important;
+  padding: 6px 12px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.floating-call {
+  position: fixed;
+  bottom: 120px;
+  right: 24px;
+  background: #ffc107;
+  color: black;
+  font-size: 24px;
+  padding: 12px;
+  border-radius: 50%;
+  z-index: 999;
+  text-decoration: none;
+}
+.trust {
+  background: #f9f9f9;
+  padding: 30px 20px;
+  text-align: center;
+}
+
+.trust-container {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.trust-item img {
+  height: 50px;
+}
+.trust-item a {
+  text-decoration: none;
+  color: #000;
+}
+.gallery-section {
+  background: #000;
+  color: #fff;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+/* GRID */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  padding: 20px;
+}
+
+/* square images */
+.gallery-grid img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* mobile */
+@media (max-width: 768px) {
+  .gallery-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+/* 🔥 FIX CAROUSEL CONTROLS VISIBILITY */
+.custom-control {
+  width: 8%;
+  opacity: 1;
+}
+
+/* make arrows visible on black bg */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  filter: invert(1);
+}
+
+/* optional: improve hit area */
+.carousel-control-prev,
+.carousel-control-next {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.clients {
+  padding: 50px 20px;
+  text-align: center;
+  background: #000;
+  color: #fff;
+}
+
+.client-logos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin: 20px 0;
+}
+
+.client-logos img {
+  height: 50px;
+
+  opacity: 0.8;
+  transition: 0.3s;
+}
+
+.client-list {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #555;
+}
+.cta-button.primary {
+  background: #ffc107;
+  color: #000;
+}
+
+.cta-button.secondary {
+  background: transparent;
+  border: 2px solid #fff;
+  color: #fff;
 }
