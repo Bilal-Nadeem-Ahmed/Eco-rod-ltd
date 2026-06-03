@@ -27,6 +27,11 @@ header {
   font-style: italic;
 }
 
+.navbar-brand {
+  padding-left: 0;
+  margin-left: -47px;
+}
+
 .navbar-brand img {
   height: 120px;
   width: auto;
