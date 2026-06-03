@@ -216,6 +216,12 @@ nav ul div a {
   background-color: #333;
   color: #fff;
 }
+
+.navbar-nav .dropdown-item.active,
+.navbar-nav .dropdown-item:active {
+  background-color: #ffc107;
+  color: #000;
+}
 .navbar-nav .nav-link {
   color: #fff; /* White text for main links */
 }
