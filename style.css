@@ -885,13 +885,21 @@ button.cta-button:not(.primary):hover,
   color: #fff;
 }
 .client-logos {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  gap: 28px 48px;
+  overflow: hidden;
   max-width: 1100px;
   margin: 0 auto;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+}
+.client-logos-track {
+  display: flex;
+  align-items: center;
+  gap: 48px;
+  width: max-content;
+  animation: client-logos-scroll 32s linear infinite;
+}
+.client-logos-track:hover {
+  animation-play-state: paused;
 }
 .client-logos img {
   height: 42px;
@@ -899,6 +907,14 @@ button.cta-button:not(.primary):hover,
   object-fit: contain;
   opacity: 1;
   filter: none;
+  flex-shrink: 0;
+}
+@keyframes client-logos-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .client-logos-track { animation: none; }
 }
 
 /* =====================
