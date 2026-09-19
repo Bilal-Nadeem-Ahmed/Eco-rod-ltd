@@ -400,22 +400,23 @@ button.cta-button:not(.primary):hover,
   margin: 0 auto;
 }
 .service-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: var(--radius-md);
   padding: 22px 20px;
   display: flex;
   flex-direction: column;
   gap: 10px;
   text-decoration: none;
-  color: var(--text);
-  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  color: #fff;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
 }
 .service-card:hover {
   transform: translateY(-4px);
-  box-shadow: var(--shadow-md);
-  border-color: var(--amber);
-  color: var(--text);
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.45);
+  border-color: rgba(255, 193, 7, 0.4);
+  color: #fff;
 }
 .service-card:active { transform: translateY(-1px); }
 .service-card-header {
@@ -443,7 +444,7 @@ button.cta-button:not(.primary):hover,
 }
 .service-card p {
   font-size: 0.845rem;
-  color: var(--text-muted);
+  color: #b0b0b0;
   margin: 0;
   line-height: 1.55;
   flex-grow: 1;
@@ -836,30 +837,31 @@ button.cta-button:not(.primary):hover,
   margin: 40px auto 0;
 }
 .faq-accordion .accordion-item {
-  background: var(--surface);
-  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: var(--radius-md) !important;
   margin-bottom: 12px;
   overflow: hidden;
 }
 .faq-accordion .accordion-button {
+  background: transparent;
   font-weight: 600;
-  color: var(--text);
+  color: #fff;
   font-size: 1rem;
 }
 .faq-accordion .accordion-button:not(.collapsed) {
-  background: var(--surface-alt);
-  color: var(--amber-dark);
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--amber);
   box-shadow: none;
 }
 .faq-accordion .accordion-button:focus {
   box-shadow: 0 0 0 3px rgba(255, 193, 7, 0.25);
 }
 .faq-accordion .accordion-button::after {
-  filter: sepia(1) saturate(4) hue-rotate(1deg);
+  filter: invert(1) sepia(1) saturate(4) hue-rotate(1deg);
 }
 .faq-accordion .accordion-body {
-  color: var(--text-muted);
+  color: #b0b0b0;
   font-size: 0.92rem;
   line-height: 1.65;
 }
