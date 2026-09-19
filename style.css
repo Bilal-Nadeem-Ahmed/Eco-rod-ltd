@@ -410,15 +410,20 @@ button.cta-button:not(.primary):hover,
   color: var(--text);
 }
 .service-card:active { transform: translateY(-1px); }
+.service-card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
 .service-icon {
-  width: 42px;
-  height: 42px;
+  width: 38px;
+  height: 38px;
   background: var(--amber);
   border-radius: var(--radius-sm);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: #000;
   flex-shrink: 0;
 }
