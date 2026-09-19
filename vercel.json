@@ -1,0 +1,12 @@
+{
+  "redirects": [
+    { "source": "/services/cctv-drain-survey", "destination": "/services/cctv-drain-inspection", "permanent": true },
+    { "source": "/services/cctv-drain-survey/", "destination": "/services/cctv-drain-inspection", "permanent": true },
+    { "source": "/services/commercial-pressure-washing", "destination": "/", "permanent": true },
+    { "source": "/services/commercial-pressure-washing/", "destination": "/", "permanent": true },
+    { "source": "/services/drain-tracing-and-locating", "destination": "/", "permanent": true },
+    { "source": "/services/drain-tracing-and-locating/", "destination": "/", "permanent": true },
+    { "source": "/services/drainage-surveys-and-reports", "destination": "/", "permanent": true },
+    { "source": "/services/drainage-surveys-and-reports/", "destination": "/", "permanent": true }
+  ]
+}
