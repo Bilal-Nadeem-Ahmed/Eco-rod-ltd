@@ -842,6 +842,10 @@ button.cta-button:not(.primary):hover,
   border-radius: var(--radius-md) !important;
   margin-bottom: 12px;
   overflow: hidden;
+  transition: border-color 0.2s ease;
+}
+.faq-accordion .accordion-item:hover {
+  border-color: rgba(255, 193, 7, 0.4);
 }
 .faq-accordion .accordion-button {
   background: transparent;
