@@ -780,6 +780,7 @@ button.cta-button:not(.primary):hover,
    ===================== */
 .reviews {
   background: var(--dark);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
   padding: 80px 24px;
   text-align: center;
 }
@@ -866,7 +867,8 @@ button.cta-button:not(.primary):hover,
    CLIENTS
    ===================== */
 .clients {
-  background: #000;
+  background: var(--dark);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
   padding: 64px 24px;
   text-align: center;
 }
@@ -891,6 +893,12 @@ button.cta-button:not(.primary):hover,
   object-fit: contain;
   opacity: 1;
   filter: none;
+}
+.client-logos img[src*="groundup"],
+.client-logos img[src*="notts-fire-rescue"] {
+  background: #fff;
+  padding: 6px 10px;
+  border-radius: 6px;
 }
 
 /* =====================
