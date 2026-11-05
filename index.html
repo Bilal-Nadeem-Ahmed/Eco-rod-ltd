@@ -743,69 +743,6 @@
     </div>
   </section>
 
-  <!-- Cookie Consent Banner -->
-  <div id="cookie-banner" class="cookie-banner" hidden>
-    <div class="cookie-banner-inner">
-      <p class="cookie-banner-text">
-        We use cookies to provide live chat (Tidio) and analytics (Google). Only necessary cookies run until you accept.
-        <a href="/privacy-policy">Privacy Policy</a>
-      </p>
-      <div class="cookie-banner-actions">
-        <button id="cookie-accept" class="cookie-btn cookie-btn-accept">Accept all</button>
-        <button id="cookie-decline" class="cookie-btn cookie-btn-decline">Necessary only</button>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    (function () {
-      var KEY = 'eco_rod_cookie_consent';
-
-      function loadTidio() {
-        if (document.querySelector('script[src*="tidio"]')) return;
-        var s = document.createElement('script');
-        s.src = '//code.tidio.co/s45pcdd6yv1lcgdvykwhbchkw3rimf3y.js';
-        s.async = true;
-        document.body.appendChild(s);
-      }
-
-      function showBanner() {
-        var b = document.getElementById('cookie-banner');
-        if (!b) return;
-        b.hidden = false;
-        requestAnimationFrame(function () { b.classList.add('cookie-banner-visible'); });
-      }
-
-      function hideBanner() {
-        var b = document.getElementById('cookie-banner');
-        if (!b) return;
-        b.classList.remove('cookie-banner-visible');
-        setTimeout(function () { b.hidden = true; }, 300);
-      }
-
-      function saveConsent(val) {
-        localStorage.setItem(KEY, val);
-        hideBanner();
-        if (val === 'accepted') loadTidio();
-      }
-
-      var consent = localStorage.getItem(KEY);
-      if (consent === 'accepted') {
-        loadTidio();
-      } else if (!consent) {
-        setTimeout(showBanner, 900);
-      }
-
-      document.getElementById('cookie-accept').addEventListener('click', function () { saveConsent('accepted'); });
-      document.getElementById('cookie-decline').addEventListener('click', function () { saveConsent('declined'); });
-
-      document.getElementById('manage-cookies').addEventListener('click', function (e) {
-        e.preventDefault();
-        localStorage.removeItem(KEY);
-        showBanner();
-      });
-    })();
-  </script>
 
   <script>
     document.getElementById('contact-form').addEventListener('submit', function (e) {
@@ -893,6 +830,10 @@
       observer.observe(factsGrid);
     })();
   </script>
+    <a class="whatsapp-float" href="https://wa.me/447366299741" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
+        <i class="bi bi-whatsapp" aria-hidden="true"></i>
+    </a>
+    <script src="/consent.js" defer></script>
 </body>
 
 </html>
