@@ -1326,10 +1326,16 @@ footer.bg-black .apex-link a:hover { color: #aaa !important; }
 .sc-split-card li { margin-bottom: 6px; }
 .sc-split-card li::marker { color: #b8860b; }
 
-/* Town tags */
-.sc-tags { list-style: none; padding: 0; margin: 0 0 16px; display: flex; flex-wrap: wrap; gap: 8px; }
-.sc-tags li { background: var(--surface-alt); border: 1px solid #e2e2e2; border-radius: 999px; padding: 6px 14px; font-size: 0.92rem; font-weight: 500; color: var(--text); }
-.sc-tags li:nth-child(-n+3) { background: var(--dark); color: #fff; border-color: var(--dark); }
+/* City pages: services grid */
+.city-services { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 16px; }
+.service-content a.city-service { display: block; text-decoration: none; background: var(--surface-alt); border: 1px solid #e6e6e6; border-radius: var(--radius-md); padding: 18px 20px; color: var(--text); font-weight: 400; transition: border-color 0.2s ease, transform 0.15s ease; }
+.service-content a.city-service:hover { border-color: var(--amber); transform: translateY(-2px); }
+.service-content a.city-service:last-child:nth-child(odd) { grid-column: 1 / -1; }
+.city-service-name { display: block; font-weight: 700; font-size: 1.05rem; margin-bottom: 4px; }
+.city-service-text { display: block; color: #4a4a4a; font-size: 0.95rem; line-height: 1.55; }
+
+/* Footer area links */
+.footer-areas a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
 
 /* Floating WhatsApp button, stacked above the Tidio chat launcher */
 .whatsapp-float { position: fixed; right: var(--wa-right, 24px); bottom: 24px; z-index: 1000; width: 56px; height: 56px; border-radius: 50%; background: #25d366; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 1.75rem; box-shadow: 0 4px 14px rgba(0,0,0,0.25); text-decoration: none; transition: transform 0.15s ease, box-shadow 0.2s ease; }
@@ -1343,7 +1349,7 @@ html.has-tidio .whatsapp-float { bottom: 122px; }
   .hero-facts li { font-size: 0.85rem; padding: 7px 12px; }
 }
 @media (max-width: 576px) {
-  .sc-intro, .sc-split { grid-template-columns: 1fr; gap: 20px; }
+  .sc-intro, .sc-split, .city-services { grid-template-columns: 1fr; gap: 20px; }
   .sc-intro-img { order: -1; }
   .sc-cta { padding: 24px 20px; }
   .sc-cta-actions, .sc-cta-actions .cta-button { width: 100%; }
