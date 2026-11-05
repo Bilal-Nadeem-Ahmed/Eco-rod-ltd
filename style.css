@@ -1356,3 +1356,8 @@ html.has-tidio .whatsapp-float { bottom: 122px; }
   .sc-cta-actions .cta-button { text-align: center; }
   .hero-service .hero-ctas .cta-button { flex: 1 1 100%; text-align: center; }
 }
+
+/* Reviews inside city page content */
+.service-content .city-reviews { margin: 8px 0 20px; }
+.service-content .city-reviews .review-stars { color: #f5a400; letter-spacing: 2px; font-size: 1.05rem; margin-bottom: 8px; }
+.service-content .city-reviews .review-text { color: #444; font-size: 0.95rem; }
