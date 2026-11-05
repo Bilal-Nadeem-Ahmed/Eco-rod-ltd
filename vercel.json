@@ -31,6 +31,9 @@
     {"source": "/commercial-pressure-washing/", "destination": "/", "permanent": true},
     {"source": "/services/commercial-pressure-washing", "destination": "/", "permanent": true},
     {"source": "/services/commercial-pressure-washing/", "destination": "/", "permanent": true},
-    {"source": "/index.html", "destination": "/", "permanent": true}
+    {"source": "/index.html", "destination": "/", "permanent": true},
+    {"source": "/locations/:city/services/:svc", "destination": "/services/:svc", "permanent": true},
+    {"source": "/locations/:city", "destination": "/areas/:city", "permanent": true},
+    {"source": "/locations", "destination": "/", "permanent": true}
   ]
 }
