@@ -72,7 +72,36 @@
     if (val === 'accepted') loadTidio();
   }
 
-  // Conversion events for Google Tag Manager: phone and WhatsApp taps anywhere on the page.
+  // ---- Conversion and engagement events for Google Tag Manager ----
+  function pageType() {
+    var p = location.pathname;
+    if (p === '/' || p === '/index.html') return 'home';
+    if (p.indexOf('/services/') === 0) return 'service';
+    if (p.indexOf('/areas/') === 0) return 'area';
+    return 'other';
+  }
+
+  function linkLocation(el) {
+    if (el.classList && el.classList.contains('whatsapp-float')) return 'floating_button';
+    if (el.closest('.top-bar')) return 'top_bar';
+    if (el.closest('header, nav')) return 'header';
+    if (el.closest('.hero-service, .hero')) return 'hero';
+    if (el.closest('.sc-cta')) return 'cta_strip';
+    if (el.closest('.sc-price')) return 'prices';
+    if (el.closest('#contact, .contact-section, .service-contact')) return 'contact_section';
+    if (el.closest('footer, #footer')) return 'footer';
+    return 'page_body';
+  }
+
+  function track(event, extra) {
+    window.dataLayer = window.dataLayer || [];
+    var data = { event: event, page_type: pageType(), page_path: location.pathname };
+    for (var k in extra) { if (Object.prototype.hasOwnProperty.call(extra, k)) data[k] = extra[k]; }
+    window.dataLayer.push(data);
+  }
+  window.ecoTrack = track;
+
+  // Phone, WhatsApp, email and "contact us" button clicks anywhere on the page.
   document.addEventListener('click', function (e) {
     var a = e.target.closest ? e.target.closest('a[href]') : null;
     if (!a) return;
@@ -80,19 +109,30 @@
     var event = null;
     if (href.indexOf('tel:') === 0) event = 'phone_click';
     else if (href.indexOf('wa.me') !== -1 || href.indexOf('whatsapp') !== -1) event = 'whatsapp_click';
+    else if (href.indexOf('mailto:') === 0 && href.indexOf('apexdigital') === -1) event = 'email_click';
+    else if (/#contact$/.test(href)) event = 'contact_cta_click';
     if (!event) return;
-    window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({
-      event: event,
+    track(event, {
       link_url: href,
-      link_location: a.closest('header, .top-bar') ? 'header'
-        : a.closest('.hero-service, .hero') ? 'hero'
-        : a.classList.contains('whatsapp-float') ? 'floating_button'
-        : a.closest('footer, #footer') ? 'footer'
-        : 'page_body',
-      page_path: location.pathname
+      link_text: (a.innerText || a.getAttribute('aria-label') || '').replace(/\s+/g, ' ').trim().slice(0, 60),
+      link_location: linkLocation(a)
     });
   }, true);
+
+  // Form started (first interaction) so we can compare starts with successful sends.
+  var formStarted = false;
+  document.addEventListener('focusin', function (e) {
+    if (formStarted || !e.target.closest || !e.target.closest('#contact-form')) return;
+    formStarted = true;
+    track('form_start', { form_id: 'contact-form' });
+  });
+
+  // Tidio live chat opened (only loads after cookie consent).
+  document.addEventListener('tidioChat-ready', function () {
+    try {
+      window.tidioChatApi.on('open', function () { track('chat_open', {}); });
+    } catch (err) { /* Tidio API unavailable */ }
+  });
 
   ensureBanner();
   document.getElementById('cookie-accept').addEventListener('click', function () { saveConsent('accepted'); });

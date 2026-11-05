@@ -527,7 +527,7 @@
             })
                 .then(async (response) => {
                     let json = await response.json();
-                    if (response.status === 200) { window.dataLayer.push({ event: 'contact_form_submit', form_page: location.pathname }); }
+                    if (response.status === 200) { if (window.ecoTrack) { window.ecoTrack('contact_form_submit', { form_id: 'contact-form' }); } else { window.dataLayer.push({ event: 'contact_form_submit', page_path: location.pathname }); } }
                     result.className = "text-success";
                     result.innerHTML = response.status === 200 ? "Thank you for your enquiry. Your message has been sent!" : json.message;
                 })
