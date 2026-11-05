@@ -1234,3 +1234,10 @@ footer.bg-black .apex-link a:hover { color: #aaa !important; }
   .cookie-banner-inner { padding: 14px 16px; gap: 12px; }
   .cookie-banner-actions { width: 100%; justify-content: flex-end; }
 }
+
+/* Service page reviews */
+.service-reviews { padding: 60px 24px; }
+.service-reviews .review-cards { margin-top: 32px; }
+.service-reviews-link { margin: 28px 0 0; }
+.service-reviews-link a { font-weight: 600; text-decoration: none; color: inherit; }
+.service-reviews-link a span { border-bottom: 2px solid currentColor; }
