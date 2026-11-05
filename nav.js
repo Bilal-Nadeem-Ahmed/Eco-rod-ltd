@@ -1,3 +1,9 @@
+// Keep footer copyright year current
+(function () {
+  var year = String(new Date().getFullYear());
+  document.querySelectorAll('.js-year').forEach(function (el) { el.textContent = year; });
+})();
+
 (function () {
   var header = document.querySelector('header');
   if (!header) return;
