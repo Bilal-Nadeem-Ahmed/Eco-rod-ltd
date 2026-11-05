@@ -57,11 +57,42 @@
     setTimeout(function () { b.hidden = true; }, 300);
   }
 
+  function updateConsentMode(val) {
+    window.dataLayer = window.dataLayer || [];
+    // gtag must push the arguments object itself for GTM to read it as a consent command.
+    if (typeof window.gtag !== 'function') window.gtag = function () { window.dataLayer.push(arguments); };
+    var v = val === 'accepted' ? 'granted' : 'denied';
+    window.gtag('consent', 'update', { analytics_storage: v, ad_storage: v, ad_user_data: v, ad_personalization: v });
+  }
+
   function saveConsent(val) {
     storageSet(val);
     hideBanner();
+    updateConsentMode(val);
     if (val === 'accepted') loadTidio();
   }
+
+  // Conversion events for Google Tag Manager: phone and WhatsApp taps anywhere on the page.
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest ? e.target.closest('a[href]') : null;
+    if (!a) return;
+    var href = a.getAttribute('href') || '';
+    var event = null;
+    if (href.indexOf('tel:') === 0) event = 'phone_click';
+    else if (href.indexOf('wa.me') !== -1 || href.indexOf('whatsapp') !== -1) event = 'whatsapp_click';
+    if (!event) return;
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: event,
+      link_url: href,
+      link_location: a.closest('header, .top-bar') ? 'header'
+        : a.closest('.hero-service, .hero') ? 'hero'
+        : a.classList.contains('whatsapp-float') ? 'floating_button'
+        : a.closest('footer, #footer') ? 'footer'
+        : 'page_body',
+      page_path: location.pathname
+    });
+  }, true);
 
   ensureBanner();
   document.getElementById('cookie-accept').addEventListener('click', function () { saveConsent('accepted'); });

@@ -2,6 +2,17 @@
 <html lang="en">
 
 <head>
+    <!-- Consent Mode defaults: analytics and ads stay off until the visitor accepts cookies -->
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        (function () {
+            var ok = false;
+            try { ok = localStorage.getItem('eco_rod_cookie_consent') === 'accepted'; } catch (e) { }
+            var v = ok ? 'granted' : 'denied';
+            gtag('consent', 'default', { analytics_storage: v, ad_storage: v, ad_user_data: v, ad_personalization: v, wait_for_update: 500 });
+        })();
+    </script>
     <!-- Google Tag Manager -->
     <script>(function (w, d, s, l, i) {
             w[l] = w[l] || []; w[l].push({
@@ -496,6 +507,7 @@
             })
                 .then(async (response) => {
                     let json = await response.json();
+                    if (response.status === 200) { window.dataLayer.push({ event: 'contact_form_submit', form_page: location.pathname }); }
                     result.className = "text-success";
                     result.innerHTML = response.status === 200 ? "Thank you for your enquiry. Your message has been sent!" : json.message;
                 })
