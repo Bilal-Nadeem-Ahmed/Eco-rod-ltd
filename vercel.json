@@ -1,4 +1,5 @@
 {
+  "trailingSlash": false,
   "redirects": [
     { "source": "/services/cctv-drain-survey", "destination": "/services/cctv-drain-inspection", "permanent": true },
     { "source": "/services/cctv-drain-survey/", "destination": "/services/cctv-drain-inspection", "permanent": true },
