@@ -722,6 +722,28 @@ button.cta-button:not(.primary):hover,
 #result { margin-top: 14px; font-weight: 600; font-size: 0.9rem; }
 .error { color: #dc3545; }
 .success { color: #198754; }
+.form-result--error {
+  color: #b02a37;
+  background: #fdecee;
+  border: 1px solid #f5c2c7;
+  border-radius: 8px;
+  padding: 10px 14px;
+}
+.cta-button:disabled { opacity: 0.7; cursor: wait; }
+.form-sent { text-align: center; padding: 28px 8px; outline: none; }
+.form-sent__icon { font-size: 3rem; color: #198754; display: block; margin-bottom: 12px; }
+.form-sent__title { font-size: 1.3rem; font-weight: 700; margin-bottom: 8px; }
+.form-sent__text { color: #555; margin-bottom: 20px; }
+.form-sent__text a { color: inherit; font-weight: 700; white-space: nowrap; }
+.form-sent__again {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 18px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.form-sent__again:hover { border-color: var(--amber); }
 
 @media (max-width: 768px) {
   .contact { padding: 52px 20px; }

@@ -767,50 +767,6 @@
   </section>
 
 
-  <script>
-    document.getElementById('contact-form').addEventListener('submit', function (e) {
-      e.preventDefault();
-      const form = e.target;
-      const result = document.getElementById('result');
-      const botcheck = document.getElementById('botcheck');
-      if (botcheck.checked) {
-        result.className = "error";
-        result.innerHTML = "Bot detected! Submission rejected.";
-        return;
-      }
-      const formData = new FormData(form);
-      if (formData.get('message').length < 10) {
-        result.className = "error";
-        result.innerHTML = "Message should be at least 10 characters long!.";
-        return;
-      }
-      const json = JSON.stringify(Object.fromEntries(formData));
-      result.className = "success";
-      result.innerHTML = "Please wait...";
-      fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: json
-      })
-        .then(async (response) => {
-          let json = await response.json();
-          if (response.status === 200) { if (window.ecoTrack) { window.ecoTrack('contact_form_submit', { form_id: 'contact-form' }); } else { window.dataLayer.push({ event: 'contact_form_submit', page_path: location.pathname }); } }
-          result.className = "success";
-          result.innerHTML = response.status === 200 ? "Thank you for your enquiry. Your message has been sent!" : json.message;
-        })
-        .catch(() => {
-          result.className = "error";
-          result.innerHTML = "Something went wrong!";
-        })
-        .finally(() => {
-          form.reset();
-          setTimeout(() => result.style.display = "none", 5000);
-        });
-    });
-  </script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
     crossorigin="anonymous"></script>
@@ -857,6 +813,7 @@
     <a class="whatsapp-float" href="https://wa.me/447366299741" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
         <i class="bi bi-whatsapp" aria-hidden="true"></i>
     </a>
+    <script src="/form.js" defer></script>
     <script src="/consent.js" defer></script>
 </body>
 
